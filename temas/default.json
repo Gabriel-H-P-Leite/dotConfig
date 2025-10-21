@@ -69,7 +69,7 @@
 	"format": "{}",
 	"return-type": "json",
 	"interval": 10,
-	"tooltip":false,
+//	"tooltip":false,
 	"escape":true
 },
 "custom/notification": {

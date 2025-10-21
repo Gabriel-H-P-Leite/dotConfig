@@ -1,11 +1,13 @@
 #!/bin/bash
-indice=1
+indice=0
 frases=( \
 "Casas e riquezas herdam-se dos pais,\nmas a esposa prudente vem do Senhor.\n-Provérbios 19:14" \
 "O pecado parece liberdade até você tentar parar" \
 "Antes da morte qualquer derrota é psicológica" \
 "Those who don't start today don't deserve a tommorow" \
 "Those who cannot conceive friendship\nas a substantive love but only as a disguise\nor elaboration of eros betray the fact that\nthey have never had a friend." \
+"When freedom is outlawed, only outlaws will be free!" \
+"Seja caloroso ao demonstrar reconhecimento e pródigo nos elogios" \
 )
 max="${#frases[@]}" 
 text=${frases[$indice]} 

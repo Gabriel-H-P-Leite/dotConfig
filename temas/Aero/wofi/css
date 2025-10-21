@@ -1,6 +1,6 @@
 /*WOFI AERO*/
-@define-color twhite rgba(255,255,255, 0.3);
-@define-color tblack rgba(0,0,0, 0.3);
+@define-color twhite rgba(170,170,255, 0.3);
+@define-color tblack rgba(34,34,34, 0.3);
 *{
 font-family:"Segoe";
 font-size:15px;
