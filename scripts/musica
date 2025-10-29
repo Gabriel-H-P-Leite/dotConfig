@@ -1,6 +1,6 @@
 #!/bin/bash
 
-player_cmd="playerctl --player=vlc"
+player_cmd="playerctl --player="
 
 infos () {
 	case "$($player_cmd status)" in
