@@ -2,6 +2,14 @@
 #![enable(unwrap_newtypes)]
 #![enable(unwrap_variant_newtypes)]
 (
+cava: (
+    bar_color: Gradient({
+          0: "rgb(  128, 128,   128)",
+         50: "rgb(  255,   255, 255)",
+        100: "rgb(128,  128, 128)",
+    })
+),
+
     default_album_art_path: None,
     show_song_table_header: true,
     draw_borders: true,
@@ -47,21 +55,21 @@
         thumb_style: (fg: "#c3c3c3",bg: "#333333"),
     ),
     scrollbar: (
-        symbols: ["│", "█", "▲", "▼"],
+        symbols: ["│", "│", "┐", "┘"],
         track_style: (),
         ends_style: (),
-        thumb_style: (fg: "blue"),
+        thumb_style: (fg: "#777777"),
     ),
     song_table_format: [
         (
             prop: (kind: Property(Artist),
-                default: (kind: Text("Unknown"))
+                default: (kind: Text("Desconhecido"))
             ),
             width: "40%",
         ),
         (
             prop: (kind: Property(Title),
-                default: (kind: Text("Unknown"))
+                default: (kind: Text("Desconhecido"))
             ),
             width: "35%",
         ),
