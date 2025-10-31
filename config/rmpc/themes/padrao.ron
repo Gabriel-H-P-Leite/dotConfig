@@ -111,11 +111,11 @@
 					(kind: Text("]"), style: (fg: "#c3c3c3", modifiers: "Bold")),
 				],
 				center: [
-					(kind: Property(Song(Artist)), style: (fg: "#c3c3c3", modifiers: "Bold"),
+					(kind: Property(Song(Artist)), style: (fg: "white"),
 					default: (kind: Text("Desconhecido"), style: (fg: "yellow", modifiers: "Bold"))
 					),
 					(kind: Text(" - ")),
-					(kind: Property(Song(Title)), style: (fg: "#ffffff",modifiers: "Bold"),
+					(kind: Property(Song(Title)), style: (fg: "white",modifiers: "Bold"),
 					default: (kind: Text("Sem música"), style: (modifiers: "Bold"))
 					)
 				],
@@ -150,7 +150,7 @@
 					(kind: Text(" ]"), style: (fg: "#c3c3c3", modifiers: "Bold")),
 				],
 				center: [
-					(kind: Property(Song(Album)), style: (fg: "#777777",modifiers: "Bold"),
+					(kind: Property(Song(Album)), style: (fg: "#c3c3c3",modifiers: "Bold"),
 					default: (kind: Text("Album Desconhecido"))),
 				],
 				right: [
