@@ -102,47 +102,66 @@
 	header: (
 		rows: [
 			(
-			left: [
-				(kind: Text("[ "), style: (fg: "#c3c3c3", modifiers: "Bold")),
-				(kind: Property(Status(StateV2(playing_label: "󰐊", paused_label: "󰏤", stopped_label: "󰓛"))), style: (fg: "white", modifiers: "Bold")),
-				(kind: Text(" ]"), style: (fg: "#c3c3c3", modifiers: "Bold"))
-			],
-			center: [
-				(kind: Property(Song(Artist)), style: (fg: "#c3c3c3", modifiers: "Bold"),
-				default: (kind: Text("Desconhecido"), style: (fg: "yellow", modifiers: "Bold"))
-				),
-				(kind: Text(" - ")),
-				(kind: Property(Song(Title)), style: (fg: "#ffffff",modifiers: "Bold"),
-				default: (kind: Text("Sem música"), style: (modifiers: "Bold"))
-				)
-			],
-			right: [
-				(kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
-				(kind: Property(Widget(Volume)), style: (fg: "#c3c3c3"))
-			]
+				left: [
+					(kind: Text("[ "), style: (fg: "#c3c3c3", modifiers: "Bold")),
+					(kind: Property(Status(StateV2(playing_label: "󰐊", paused_label: "󰏤", stopped_label: "󰓛"))), style: (fg: "white", modifiers: "Bold")),
+					(kind: Text(" (")),
+					(kind: Property(Status(Bitrate))),
+					(kind: Text(" kbps)")),
+					(kind: Text("]"), style: (fg: "#c3c3c3", modifiers: "Bold")),
+				],
+				center: [
+					(kind: Property(Song(Artist)), style: (fg: "#c3c3c3", modifiers: "Bold"),
+					default: (kind: Text("Desconhecido"), style: (fg: "yellow", modifiers: "Bold"))
+					),
+					(kind: Text(" - ")),
+					(kind: Property(Song(Title)), style: (fg: "#ffffff",modifiers: "Bold"),
+					default: (kind: Text("Sem música"), style: (modifiers: "Bold"))
+					)
+				],
+				right: [
+					(kind: Text(" [ "), style: (fg: "white", modifiers: "Bold")),
+					(kind: Text("󰕾 "), style: (fg: "white", modifiers: "Bold")),
+					(kind: Property(Status(Volume)), style: (fg: "white")),
+					(kind: Text("%"), style: (fg: "white", modifiers: "Bold")),
+					(kind: Text(" | "),style: (fg: "white", modifiers: "Bold")),
+					
+					(kind: Property(Status(RepeatV2(on_label: "", off_label: "",
+					on_style: (fg: "white", modifiers: "Bold"), off_style: (fg: "#777777", modifiers: "Bold"))))),
+					(kind: Text(" | "),style: (fg: "white", modifiers: "Bold")),
+					(kind: Property(Status(RandomV2(on_label: "", off_label: "",
+					on_style: (fg: "white", modifiers: "Bold"), off_style: (fg: "#777777", modifiers: "Bold"))))),
+					(kind: Text(" | "),style: (fg: "white", modifiers: "Bold")),
+					(kind: Property(Status(ConsumeV2(on_label: "󰮯", off_label: "󰮯", oneshot_label: "󰮯󰇊",
+					on_style: (fg: "white", modifiers: "Bold"), off_style: (fg: "#777777", modifiers: "Bold"))))),
+					(kind: Text(" | "),style: (fg: "white", modifiers: "Bold")),
+					(kind: Property(Status(SingleV2(on_label: "󰎤 ", off_label: "󰎦", oneshot_label: "󰇊", off_oneshot_label: "󱅊",
+					on_style: (fg: "white", modifiers: "Bold"), off_style: (fg: "#777777", modifiers: "Bold"))))),
+					(kind: Text(" ]"), style: (fg: "white", modifiers: "Bold")),
+				]
 			),
 			(
 				left: [
+					(kind: Text("["), style: (fg: "#c3c3c3", modifiers: "Bold")),
+					(kind: Text(" 󱎫 ")),
 					(kind: Property(Status(Elapsed))),
-					(kind: Text(" / ")),
+					(kind: Text("/")),
 					(kind: Property(Status(Duration))),
-					(kind: Text(" (")),
-					(kind: Property(Status(Bitrate))),
-					(kind: Text(" kbps)"))
+					(kind: Text(" ]"), style: (fg: "#c3c3c3", modifiers: "Bold")),
 				],
 				center: [
 					(kind: Property(Song(Album)), style: (fg: "#777777",modifiers: "Bold"),
-					default: (kind: Text("Album Desconhecido"))
-					),
+					default: (kind: Text("Album Desconhecido"))),
 				],
 				right: [
-					(
-						kind: Property(Widget(States(
-						active_style: (fg: "white", modifiers: "Bold"),
-						separator_style: (fg: "white")))
-						),
-						style: (fg: "#777777")
-					),
+					(kind: Text("[ "), style: (fg: "white", modifiers: "Bold")),
+					(kind: Property(Widget(ScanStatus)), style: (fg: "white")),
+					(kind: Text("󰴍 "),style: (fg: "white", modifiers: "Bold")),
+					(kind: Property(Status(QueueLength())),style: (fg: "white")),
+					(kind: Text(" | "),style: (fg: "white", modifiers: "Bold")),
+					(kind: Text("󰔠 "),style: (fg: "white", modifiers: "Bold")),
+					(kind: Property(Status(QueueTimeTotal(separator: " "))),style: (fg: "white")),
+					(kind: Text(" ]"), style: (fg: "white", modifiers: "Bold")),
 				]
 			),
 		],
