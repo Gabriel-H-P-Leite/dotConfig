@@ -14,9 +14,9 @@ infos () {
 	volume=$($player_cmd metadata --format "{{ volume * 100 }}" | cut -d "." -f 1)
 	duracao=$($player_cmd metadata --format '{{duration(position)}}/{{duration(mpris:length)}}')  
 }
-infos
 #se $1 está vazio
 if [ -z "$1" ]; then
+	infos
 	text="$titulo\n$artista"
 	if [ -z "$titulo" ]; then #se $titulo está vazio
 	text=""
@@ -31,10 +31,12 @@ case "$1" in
 		sed -i "s|^player_cmd=.*|player_cmd=\"playerctl --player=$player\"|" "$HOME/.config/dotConfig/scripts/musica"
 	;;
 	"tocando")  
+		infos
 		echo -e "$ico"
 		exit 0
 	;;
 	"mais")  
+		infos
 		text="$titulo\n$artista\n$album"
 		printf "{ \"text\": \"%s\", \"tooltip\": \"%s\",}\n" \
 		       "$text" "󰕾 $volume%"
