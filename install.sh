@@ -26,7 +26,7 @@ sudo rm -rf $apagar
 cd dotConfig/
 cp -rf config/* ../
 #links em bin
-sudo ln -rsf scripts/* /bin/
+sudo ln -rsf scripts/menus /bin/
 #links em home
 sudo rm ~/.bashrc ;  sudo rm ~/.profile 
 sudo ln -rsf home/.* ~/ 

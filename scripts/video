@@ -1,5 +1,4 @@
 #!/bin/bash
-opcoes="apps\nbaixar\narea\naltab\nlogout\ntemas\natualizar"
 #se wofi estiver rodando
 if pgrep -x "wofi" > /dev/null
 then
