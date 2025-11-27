@@ -26,7 +26,7 @@ sudo rm -rf $apagar
 cd dotConfig/
 cp -rf config/* ../
 #links em bin
-sudo ln -rsf scripts/* /bin/
+sudo ln -rsf scripts/menus /bin/
 #links em home
 sudo rm ~/.bashrc ;  sudo rm ~/.profile 
 sudo ln -rsf home/.* ~/ 
@@ -47,7 +47,7 @@ else
 	#Texto
 	sudo pacman -S $flags libreoffice-still neovide neovim mousepad zathura zathura-pdf-mupdf 
 	#Midia
-	sudo pacman -S $flags feh vlc mpv playerctl
+	sudo pacman -S $flags feh mpd mpd-mpris rmpc mpv playerctl
 	#CLI
 	sudo pacman -S $flags neofetch btop awk less libnotify yt-dlp ffmpeg cliphist wl-clipboard tealdeer unzip github-cli flatpak
 	#Fontes

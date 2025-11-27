@@ -1,3 +1,4 @@
 [any]
-path = "/home/gabriel/Imagens/Wallpapers/ARCH7.jpg"
+path = "/home/gabriel/Imagens/Wallpapers/"
+duration="5m"
 mode="stretch"

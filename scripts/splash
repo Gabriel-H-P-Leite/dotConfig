@@ -1,5 +1,5 @@
 #!/bin/bash
-indice=0
+indice=4
 frases=( \
 "Casas e riquezas herdam-se dos pais,\nmas a esposa prudente vem do Senhor.\n-Provérbios 19:14" \
 "O pecado parece liberdade até você tentar parar" \
@@ -8,6 +8,7 @@ frases=( \
 "Those who cannot conceive friendship\nas a substantive love but only as a disguise\nor elaboration of eros betray the fact that\nthey have never had a friend." \
 "When freedom is outlawed, only outlaws will be free!" \
 "Seja caloroso ao demonstrar reconhecimento e pródigo nos elogios" \
+"tudo que você escolhe não mudar você aceita ter" \
 )
 max="${#frases[@]}" 
 text=${frases[$indice]} 
