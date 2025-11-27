@@ -8,72 +8,15 @@ infos () {
 		"Paused") ico="󰐊" ;;
 		*) ico="" ;;
 	esac
-	foto=$($player_cmd metadata mpris:artUrl)
 	artista=$($player_cmd metadata --format "{{ artist }}")
 	titulo=$($player_cmd metadata --format "{{ title }}")
 	album=$($player_cmd metadata --format "{{ album }}")
 	volume=$($player_cmd metadata --format "{{ volume * 100 }}" | cut -d "." -f 1)
 	duracao=$($player_cmd metadata --format '{{duration(position)}}/{{duration(mpris:length)}}')  
 }
-notify () {
-notify-send -i $foto -e "$(echo -e "$ico $artista - $titulo\n󰕾 $volume% 󰎅 $album 󱎫 $duracao")" -h string:x-canonical-private-synchronous:musica -t 2000 -h string:transient:true 
-}
-
-#se $1 igual player
-if [ "$1" = "player" ]; then
-	player=$(playerctl --list-all | wofi -d)
-	sed -i "s|^player_cmd=.*|player_cmd=\"playerctl --player=$player\"|" "$HOME/.config/dotConfig/scripts/musica"
-fi
-#se $1 igual select
-if [ "$1" = "select" ]; then
-	if [ -z "$2" ]; then #se $2 estiver vazio
-		"$0" select "$HOME/Músicas"
-	else
-		cd "$2"
-		sele=$(echo -e "1:  Tocar música \n2: 󱧺 Tocar pasta\n3: 󰴙 Tocar todas\n4: 󰥠 Mudar player" | wofi -d | cut -d ':' -f 1)
-		case "$sele" in		
-			1) musica="$(find . -type f | cut -d '/' -f 2,3,4,5 | wofi -d)";;
-			2) musica="$(ls -h | wofi -d)";;
-			3) mkdir .todas ; ln -rsf */* .todas/ ; musica=".todas";;
-			4) musica player;;
-		esac
-		if [ "$musica" = ".playlists/" ]; then
-			exit 0
-		fi
-		if [ -n "$musica" ]; then
-			killall vlc
-			cvlc -Z "$musica"
-			exit 0
-		fi
-	fi
-elif [ -n "$1" ]; then #se $1 não está vazio
-	$player_cmd $1 $2
-fi
-infos
-#se $1 igual a tocando
-if [ "$1" = "tocando" ]; then
-	echo -e "$ico"
-	exit 0
-fi
-#se $1 igual a mais
-if [ "$1" = "mais" ]; then
-	text="$titulo\n$artista\n$album"
-	printf "{ \"text\": \"%s\", \"tooltip\": \"%s\",}\n" \
-	       "$text" "󰕾 $volume%"
-	exit 0
-fi
-if [ "$1" = "cava" ]; then
-layer=$(hyprctl layers | grep kitty | cut -d ":" -f 5)
-if [ -z "$layer" ]; then
-		kitty +kitten panel -o font_size=1 -o background_opacity=0.0 --edge background cava
-		exit 0
-	else
-		kill $layer
-		exit 0
-	fi
-fi
 #se $1 está vazio
 if [ -z "$1" ]; then
+	infos
 	text="$titulo\n$artista"
 	if [ -z "$titulo" ]; then #se $titulo está vazio
 	text=""
@@ -82,6 +25,35 @@ if [ -z "$1" ]; then
 	       "$text" "󰕾 $volume%"
 	exit 0
 fi
-infos
-notify
-exit 0
+case "$1" in
+	"player")  
+		player=$(playerctl --list-all | wofi -d)
+		sed -i "s|^player_cmd=.*|player_cmd=\"playerctl --player=$player\"|" "$HOME/.config/dotConfig/scripts/musica"
+	;;
+	"tocando")  
+		infos
+		echo -e "$ico"
+		exit 0
+	;;
+	"mais")  
+		infos
+		text="$titulo\n$artista\n$album"
+		printf "{ \"text\": \"%s\", \"tooltip\": \"%s\",}\n" \
+		       "$text" "󰕾 $volume%"
+		exit 0
+	;;
+	"cava")  
+		layer=$(hyprctl layers | grep kitty | cut -d ":" -f 5)
+		if [ -z "$layer" ]; then
+			kitty +kitten panel -o font_size=1 -o background_opacity=0.0 --edge background cava
+			exit 0
+		else
+			kill $layer
+			exit 0
+		fi
+	;;
+	*)
+		$player_cmd $1 $2
+		exit 0
+	;;
+esac
