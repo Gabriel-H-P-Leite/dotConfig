@@ -1,6 +1,6 @@
 #!/bin/bash
 
-player_cmd="playerctl --player=mpd.instance767524"
+player_cmd="playerctl --player=mpd.instance124591"
 
 infos () {
 	case "$($player_cmd status)" in
@@ -8,6 +8,7 @@ infos () {
 		"Paused") ico="󰐊" ;;
 		*) ico="" ;;
 	esac
+	foto=$($player_cmd metadata mpris:artUrl)
 	artista=$($player_cmd metadata --format "{{ artist }}")
 	titulo=$($player_cmd metadata --format "{{ title }}")
 	album=$($player_cmd metadata --format "{{ album }}")
@@ -52,8 +53,14 @@ case "$1" in
 			exit 0
 		fi
 	;;
+	"notificacao")  
+		infos
+		notify-send -i $foto -e "$titulo" "$artista\n󰕾 $volume%" -h string:x-canonical-private-synchronous:musica -t 2000 -h string:transient:true 
+		exit 0
+	;;
 	*)
 		$player_cmd $1 $2
 		exit 0
 	;;
+		
 esac
