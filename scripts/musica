@@ -1,6 +1,6 @@
 #!/bin/bash
 
-player_cmd="playerctl --player=mpd.instance124591"
+player_cmd="playerctl --player=mpd.instance294145"
 
 infos () {
 	case "$($player_cmd status)" in

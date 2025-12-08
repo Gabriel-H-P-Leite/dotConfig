@@ -4,80 +4,97 @@
 @define-color border @unfocused;
 @define-color background rgba(0,0,0, 0.3);
 *{
-font-family:Noto San JP,Symbols Nerd Font Mono;
-font-size:100%;
-min-height:0px;
-min-width:0px;
-transition:none;
+	font-family:Noto San JP,Symbols Nerd Font Mono;
+	font-size:100%;
+	min-height:0px;
+	min-width:0px;
+	transition:none;
 }
 window.splash#waybar *{
-border:none;
-background:transparent;
+	border:none;
+	background:transparent;
 }
 #custom-splash{
-color:white;
-text-shadow:-1px -1px 2px black,1px 1px 2px black;
-padding:10px;
+	color:white;
+	text-shadow:-1px -1px 2px black,1px 1px 2px black;
+	padding:10px;
 }
 .modules-left,.modules-center,.modules-right{
-border:1px solid @border;
-border-radius:20px;
-background:@background;
-color:@text;
+	background:@background;
+	color:@text;
+}
+.modules-left{
+	border-bottom:1px solid @border;
+	border-right:1px solid @border;
+	border-radius:0 0 20px 0;
+	padding-right:5px;
+}
+.modules-center{
+	border-left:1px solid @border;
+	border-bottom:1px solid @border;
+	border-right:1px solid @border;
+	border-radius:0 0 20px 20px;
+	padding-left:5px;
+	padding-right:5px;
+}
+.modules-right{
+	border-left:1px solid @border;
+	border-bottom:1px solid @border;
+	border-radius:0 0 0 20px;
+	padding-left:5px;
 }
 window#waybar{
-background:transparent;
+	background:transparent;
 }
 #cpu,#memory,#disk,#bluetooth,#backlight,#battery,#tray,#network,#pulseaudio,#clock,#custom-notification,#custom-menu{
-color:@text;
-border-radius:50%;
-padding:6px;
-margin:0px 3px;
-min-width:18px;
-}
-#custom-menu,tooltip{
-background:@background;
-margin:0px;
-box-shadow: 0px 0px 1px 1px @border;
-border-radius:20px;
-min-width:20px;
-min-height:20px;
+	color:@text;
+	padding:6px;
+	margin:0px 3px;
+	min-width:18px;
 }
 #custom-menu{
-background:none;
+	min-width:20px;
+	min-height:20px;
+	background:none;
 }
 #custom-menu:hover{
-font-weight:bolder;
-text-shadow:-1px -1px 5px @unfocused,1px 1px 5px @unfocused;
+	font-weight:bolder;
+	text-shadow:-1px -1px 5px @unfocused,1px 1px 5px @unfocused;
+}
+tooltip{
+	border:1px solid @border;
+	border-radius:20px;
+	background:rgba(0,0,0,0.5);
+	margin:5px;
 }
 #custom-music,#custom-previous,#custom-next,#custom-playing{
-margin:0px 8px;
-font-weight:bold;
-font-size:10px;
+	margin:0px 8px;
+	font-weight:bold;
+	font-size:10px;
 }
 #workspaces button{
-margin:0px 3px;
-color:@unfocused;
-min-width:18px;
-border:1px solid transparent;
-background:none;
-transition: all 0.5s linear;
-min-width:20px;
-min-height:20px;
+	margin:0px 3px;
+	color:@unfocused;
+	min-width:18px;
+	border:1px solid transparent;
+	background:none;
+	transition: all 0.5s linear;
+	min-width:20px;
+	min-height:20px;
 }
 #workspaces button.active{
-color:@text;
-text-shadow:-1px -1px 5px @unfocused,1px 1px 5px @unfocused;
-border-radius:20px;
-transition: all 0.2s linear;
+	color:@text;
+	text-shadow:-1px -1px 5px @unfocused,1px 1px 5px @unfocused;
+	border-radius:20px;
+	transition: all 0.2s linear;
 }
 #workspaces button.urgent {
-color:yellow;
+	color:yellow;
 }
 #workspaces button:hover{
-background:transparent;
-color:@text;
+	background:transparent;
+	color:@text;
 }
 #cpu,#memory,#disk,#backlight,#bluetooth,#battery{
-min-width:50px;
+	min-width:50px;
 }

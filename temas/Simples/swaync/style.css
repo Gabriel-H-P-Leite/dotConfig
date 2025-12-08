@@ -1,7 +1,7 @@
 /*SIMPLESWAY*/
 @define-color text-unfocused rgba(255,255,255,0.5);
 @define-color text white;
-@define-color border rgba(128,128,128,0.4);
+@define-color border rgba(255,255,255,0.4);
 @define-color background rgba(0,0,0, 0.3);
 
 *{
@@ -18,10 +18,15 @@ border:@border 1px solid;
 }
 .notification,.control-center{
 color:@text;
-border:1px solid @border;
-border-radius:20px;
+border-top:1px solid @border;
+border-left:1px solid @border;
+border-bottom:1px solid @border;
+border-radius:20px 0 0 20px;
 background:@background;
-margin:5px;
+margin:5px 0 5px 0;
+}
+.notification{
+margin-right:-15px;
 }
 .app-icon, .right{
 opacity:0%;
