@@ -252,6 +252,7 @@
 		//Multimidia
 		"class<mpv>": "",
 		"class<vlc>": "",
+		"class<Audacious>": "",
 		"class<com.stremio.stremio>": "",
 		"class<org.strawberrymusicplayer.strawberry>": "",
 		//Jogo
