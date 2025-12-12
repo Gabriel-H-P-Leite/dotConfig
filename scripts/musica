@@ -1,5 +1,5 @@
 #!/bin/bash
-player="audacious"
+player="mpd.instance2164"
 player_cmd="playerctl --player=$player"
 
 infos () {
@@ -55,6 +55,9 @@ case "$1" in
 	;;
 	"notificacao")  
 		infos
+		if ["$foto" -eq "No player could handle this command"] || [ -z "$foto" ] ; then
+			foto="$HOME/Músicas/default.jpg"
+		fi
 		notify-send -i $foto -e "$titulo" "$artista\n󰕾 $volume%" -h string:x-canonical-private-synchronous:musica -t 2000 -h string:transient:true 
 		exit 0
 	;;

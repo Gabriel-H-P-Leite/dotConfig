@@ -71,6 +71,7 @@ tooltip{
 	margin:0px 8px;
 	font-weight:bold;
 	font-size:10px;
+	/*max-width:500px;*/
 }
 #workspaces button{
 	margin:0px 3px;
