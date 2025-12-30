@@ -10,7 +10,7 @@ fi
 TMP_DIR="/tmp/rmpc"
 mkdir -p "$TMP_DIR"
 ALBUM_ART_PATH="$TMP_DIR/notification_cover"
-DEFAULT_ALBUM_ART_PATH="$HOME/Músicas/default.jpg"
+DEFAULT_ALBUM_ART_PATH="$HOME/Músicas/.default.jpg"
 
 #padrao se nao tem
 if ! rmpc albumart --output "$ALBUM_ART_PATH"; then

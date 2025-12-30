@@ -1,5 +1,5 @@
 #!/bin/bash
-player="mpd.instance2164"
+player="audacious"
 player_cmd="playerctl --player=$player"
 
 infos () {
@@ -53,10 +53,18 @@ case "$1" in
 			exit 0
 		fi
 	;;
+	"foto")
+		infos &> /dev/null
+		if [ "$foto" == "No player could handle this command" ] || [ -z "$foto" ] ; then
+			echo "$HOME/Músicas/.default.jpg"
+		else
+			echo $foto
+		fi
+	;;
 	"notificacao")  
 		infos
-		if ["$foto" -eq "No player could handle this command"] || [ -z "$foto" ] ; then
-			foto="$HOME/Músicas/default.jpg"
+		if [ "$foto" == "No player could handle this command" ] || [ -z "$foto" ] ; then
+			foto="$HOME/Músicas/.default.jpg"
 		fi
 		notify-send -i $foto -e "$titulo" "$artista\n󰕾 $volume%" -h string:x-canonical-private-synchronous:musica -t 2000 -h string:transient:true 
 		exit 0
