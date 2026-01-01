@@ -8,7 +8,7 @@ if [[ "$(tty)" == "/dev/tty1" ]] ; then
 		sessao=$1
 	fi
 	case "$sessao" in		
-		0) exec Hyprland &>/dev/null ;;
+		0) exec start-hyprland &>/dev/null ;;
 		1) gamescope $resolucao -- steam -start steam://open/bigpicture ;;
 		2) sleep 3 ; exec gamescope $resolucao -- pcsx2 -bigpicture -fullscreen ;;
 	esac
